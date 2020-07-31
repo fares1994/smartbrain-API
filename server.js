@@ -25,7 +25,7 @@ app.get('/profile/:id', (req, res) =>{profileid.profileidhandler(req,res,db)})
 app.put('/image', (req, res) =>image.imagehandler(req,res,db))
 app.post('/imageurl',(req,res)=>image.facedetect(req,res))
 app.get('/', (req, res) =>
-    res.send(database.users))
+    res.send('it is working'))
 
 app.listen(process.env.port||3000,()=>
 console.log(`app is running on port ${process.env.port}`))
