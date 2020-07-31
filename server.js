@@ -27,4 +27,4 @@ app.post('/imageurl',(req,res)=>image.facedetect(req,res))
 app.get('/', (req, res) =>
     res.send(database.users))
 
-app.listen(3001)
+app.listen(process.env.port)
