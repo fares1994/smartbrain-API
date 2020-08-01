@@ -24,6 +24,5 @@ app.get('/profile/:id', (req, res) =>{profileid.profileidhandler(req,res,db)})
 app.put('/image', (req, res) =>image.imagehandler(req,res,db))
 app.post('/imageurl',(req,res)=>image.facedetect(req,res))
 app.get('/', (req, res) =>res.send('it is working'))
-//when requesting from postman with the 3001 port it works the problem is most likely with the port
 app.listen(port||3001,()=>
 console.log(`app is running on port ${port}`))
