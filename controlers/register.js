@@ -26,6 +26,6 @@ const registerhandler = (req,res,db,bcrypt)=>{
             .catch(trx.rollback)
     })
         .catch(err => res.status(400).json('unable to register haha'))*/
-        db('fares').insert({name:name})
+        db('fares').insert({name:name}).then(console.log(name))
 }
 module.exports={registerhandler:registerhandler}
