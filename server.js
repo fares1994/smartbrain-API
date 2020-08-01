@@ -10,10 +10,10 @@ const image = require('./controlers/image')
 const db = knex({
     client: 'postgres',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'zain1994',
-        database: 'smartbrain'
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+          rejectUnauthorized: false
+        }
     }
 })
 const port = process.env.PORT
