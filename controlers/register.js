@@ -23,6 +23,6 @@ const registerhandler = (req,res,db,bcrypt)=>{
             .then(trx.commit)
             .catch(trx.rollback)
     })//the problem is here it keeps catching an error FIND IT!!!
-        .catch(err => res.status(400).json('unable to register'))
+        .catch(err => res.status(400).json('unable to register haha'))
 }
 module.exports={registerhandler:registerhandler}
