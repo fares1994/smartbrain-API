@@ -7,6 +7,7 @@ const signin = require('./controlers/signin');
 const register = require('./controlers/register');
 const profileid = require('./controlers/profileid')
 const image = require('./controlers/image')
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = knex({
     client: 'postgres',
     connection: {
