@@ -2,7 +2,7 @@ const registerhandler = (req,res,db,bcrypt)=>{
     const { name, email, password } = req.body
     if(!name||!email||!password){return res.status(400).json('empty input')}
     const hash = bcrypt.hashSync(password)
-     db.transaction(trx => {//there is a problem inserting into login
+       db.transaction(trx => {//there is a problem inserting into login
         //nothing wrong with the database
         //check knex.js syntax
         trx.insert({
@@ -26,6 +26,7 @@ const registerhandler = (req,res,db,bcrypt)=>{
             .catch(trx.rollback)
     })
         .catch(err => res.status(400).json('unable to register haha'))
+        
 
 }
 module.exports={registerhandler:registerhandler}
