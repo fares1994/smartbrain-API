@@ -27,5 +27,5 @@ app.post('/imageurl',(req,res)=>image.facedetect(req,res))
 app.get('/', (req, res) =>
     res.send('it is working'))
 
-app.listen(process.env.port||3000,()=>
+app.listen(process.env.Port||3000,()=>
 console.log(`app is running on port ${process.env.port}`))
