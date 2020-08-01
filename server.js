@@ -24,8 +24,7 @@ app.post('/register', (req, res) =>{register.registerhandler(req,res,db,bcrypt)}
 app.get('/profile/:id', (req, res) =>{profileid.profileidhandler(req,res,db)})
 app.put('/image', (req, res) =>image.imagehandler(req,res,db))
 app.post('/imageurl',(req,res)=>image.facedetect(req,res))
-app.get('/', (req, res) =>
-    res.send('it is working'))
-
-app.listen(process.env.Port||3000,()=>
-console.log(`app is running on port ${process.env.port}`))
+app.get('/', (req, res) =>res.send('it is working'))
+//when requesting from postman with the 3001 port it works the problem is most likely with the port
+app.listen(3001,()=>
+console.log(`app is running on port ${process.env.Port}`))
