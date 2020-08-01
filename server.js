@@ -11,9 +11,7 @@ const db = knex({
     client: 'postgres',
     connection: {
         connectionString: process.env.DATABASE_URL,
-        ssl: {
-          rejectUnauthorized: false
-        }
+        ssl: true
     }
 })
 const port = process.env.PORT
