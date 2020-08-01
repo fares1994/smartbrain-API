@@ -16,7 +16,7 @@ const db = knex({
         database: 'smartbrain'
     }
 })
-
+const port = process.env.Port
 app.use(express.json())
 app.use(cors())
 app.post('/signin', (req,res)=>{signin.signinhandler(req,res,db,bcrypt)})
@@ -26,5 +26,5 @@ app.put('/image', (req, res) =>image.imagehandler(req,res,db))
 app.post('/imageurl',(req,res)=>image.facedetect(req,res))
 app.get('/', (req, res) =>res.send('it is working'))
 //when requesting from postman with the 3001 port it works the problem is most likely with the port
-app.listen(process.env.Port||3001,()=>
+app.listen(port||3001,()=>
 console.log(`app is running on port ${process.env.Port}`))
