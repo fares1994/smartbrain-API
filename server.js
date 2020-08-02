@@ -1,20 +1,21 @@
 const express = require('express');
-const app = express();
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
+
 const signin = require('./controlers/signin');
 const register = require('./controlers/register');
 const profileid = require('./controlers/profileid')
 const image = require('./controlers/image')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = knex({
-    client: 'postgres',
+    client: 'pg',
     connection: {
         connectionString: process.env.DATABASE_URL,
-        ssl: false
+        ssl: true
     }
 })
+const app = express();
 const port = process.env.PORT
 app.use(express.json())
 app.use(cors())

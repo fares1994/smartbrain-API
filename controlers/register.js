@@ -2,10 +2,10 @@ const registerhandler = (req,res,db,bcrypt)=>{
     const { name, email, password } = req.body
     if(!name||!email||!password){return res.status(400).json('empty input')}
     const hash = bcrypt.hashSync(password)
-       db.transaction(trx => {//there is a problem inserting into login
-        //nothing wrong with the database
-        //connection between nodejs and the database 
-        trx.insert({
+    db.transaction(trx => {//there is a problem inserting into login
+          //nothing wrong with the database
+          //connection between nodejs and the database 
+          trx.insert({
             hash: hash,
             email: email
         })
@@ -29,4 +29,4 @@ const registerhandler = (req,res,db,bcrypt)=>{
         
 
 }
-module.exports={registerhandler:registerhandler}
+module.exports={registerhandler:registerhandler};
