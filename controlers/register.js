@@ -4,14 +4,14 @@ const registerhandler = (req,res,db,bcrypt)=>{
     const hash = bcrypt.hashSync(password)
        db.transaction(trx => {//there is a problem inserting into login
         //nothing wrong with the database
-        //check knex.js syntax
+        //connection between nodejs and the database 
         trx.insert({
             hash: hash,
             email: email
         })
             .into('login')
             .returning('email')
-            .then(loginemail => {console.log(loginemail)
+            .then(loginemail => {
                return trx('users')
                     .returning('*')
                     .insert(
