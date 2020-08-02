@@ -7,18 +7,19 @@ const signin = require('./controlers/signin');
 const register = require('./controlers/register');
 const profileid = require('./controlers/profileid')
 const image = require('./controlers/image')
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-const db = knex({
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+/*const db = knex({
     client: 'pg',
     connection: {
         connectionString: process.env.DATABASE_URL,
         ssl: true
     }
-})
+})*/
 const app = express();
 const port = process.env.PORT
 app.use(express.json())
 app.use(cors())
+
 app.post('/signin', (req,res)=>{signin.signinhandler(req,res,db,bcrypt)})
 app.post('/register', (req, res) =>{register.registerhandler(req,res,db,bcrypt)})
 app.get('/profile/:id', (req, res) =>{profileid.profileidhandler(req,res,db)})
