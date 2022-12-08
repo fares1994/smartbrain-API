@@ -8,7 +8,7 @@
     "clarifai": "^2.9.1",
     "clarifai-nodejs-grpc": "^6.7.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "init": "^0.1.2",
     "knex": "^0.21.2",
     "pg": "^8.3.0"
